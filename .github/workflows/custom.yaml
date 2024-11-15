@@ -8,10 +8,7 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
-    steps:
-      - name: Install SSH Client
-        run: sudo apt-get update && sudo apt-get install -y openssh-client
-      
+    steps:      
       - name: Run Setup for Bharat Seva
         uses: ShubhamRon/setup4bharatseva@main
         env:
@@ -19,11 +16,11 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
 
-      - name: Check Current Folder on Remote Server
-        run: |
-          ssh -i ${{ secrets.SSH_KEY }}  ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
-          echo "Present Directory on Remote Server is:"
-          cd /home/azureuser/server
-          pwd
-          EOF
+      # - name: Check Current Folder on Remote Server
+      #   run: |
+      #     ssh -i ${{ secrets.SSH_KEY }}  ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+      #     echo "Present Directory on Remote Server is:"
+      #     cd /home/azureuser/server
+      #     pwd
+      #     EOF
 
