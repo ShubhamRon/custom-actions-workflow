@@ -7,4 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ShubhamRon/Custom-actions@main
+      - uses: vaibhavyadav-dev/setup4bharatseva@main
+
+      - name: CheckCurrent Folder
+      - run: |
+          echo "Present Directory is "
+          cd /home/azureuser/server
+          pwd
